@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column          | Type   | Options                       |
-| --------------- | ------ | ----------------------------- |
-| nickname        | string | null: false                   |
-| email           | string | null: false                   |
-| password        | string | null: false                   |
-| last_name       | string | null: false                   |
-| first_name      | string | null: false                   |
-| last_name_kana  | string | null: false, format: [ァ- ヶ] |
-| first_name_kana | string | null: false, format: [ァ- ヶ] |
-| birthday        | date   | null: false                   |
+| Column             | Type   | Options                       |
+| ------------------ | ------ | ----------------------------- |
+| nickname           | string | null: false                   |
+| email              | string | null: false                   |
+| encrypted_password | string | null: false                   |
+| last_name          | string | null: false                   |
+| first_name         | string | null: false                   |
+| last_name_kana     | string | null: false, format: [ァ- ヶ] |
+| first_name_kana    | string | null: false, format: [ァ- ヶ] |
+| birthday           | date   | null: false                   |
 
 ### Association
 
@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column      | Type      | Options           |
-| ----------- | --------- | ----------------- |
-| name        | string    | null: false       |
-| explanation | text      | null: false       |
-| category    | string    | null: false       |
-| condition   | string    | null: false       |
-| price       | integer   | null: false       |
-| cost        | string    | null: false       |
-| area        | string    | null: false       |
-| days        | string    | null: false       |
-| user        | reference | foreign_key: true |
+| Column       | Type      | Options           |
+| ------------ | --------- | ----------------- |
+| name         | string    | null: false       |
+| explanation  | text      | null: false       |
+| category_id  | integer   | null: false       |
+| condition_id | integer   | null: false       |
+| cost_id      | integer   | null: false       |
+| area_id      | integer   | null: false       |
+| days_id      | integer   | null: false       |
+| price        | integer   | null: false       |
+| user         | reference | foreign_key: true |
 
 ### Association
 
@@ -41,9 +41,6 @@
 
 | Column       | Type      | Options           |
 | ------------ | --------- | ----------------- |
-| card_number  | integer   | null: false       |
-| card_limit   | data      | null: false       |
-| card_sec_num | integer   | null: false       |
 | item         | reference | foreign_key: true |
 | user         | reference | foreign_key: true |
 
@@ -58,7 +55,7 @@
 | Column        | Type      | Options                  |
 | ------------- | --------- | ------------------------ |
 | post          | string    | null: false              |
-| prefecture    | string    | null: false              |
+| prefecture_id | integer   | null: false              |
 | city          | string    | null: false              |
 | address       | string    | null: false              |
 | building      | string    |                          |
