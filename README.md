@@ -17,16 +17,16 @@
 
 ## profile テーブル
 
-| Column          | Type       | Options     |
-| --------------- | ---------- | ----------- |
-| last_name       | string     | null: false |
-| first_name      | string     | null: false |
-| last_name_kana  | string     | null: false, katakanadake! |
-| first_name_kana | string     | null: false, katakanadake! |
-| birth_year      | integer    | null: false |
-| birth_month     | integer    | null: false |
-| birth_day       | integer    | null: false |
-| user            | reference  |             |
+| Column          | Type       | Options                       |
+| --------------- | ---------- | -----------                   |
+| last_name       | string     | null: false                   |
+| first_name      | string     | null: false                   |
+| last_name_kana  | string     | null: false, format: [ァ- ヶ] |
+| first_name_kana | string     | null: false, format: [ァ- ヶ] |
+| birth_year      | integer    | null: false                   |
+| birth_month     | integer    | null: false                   |
+| birth_day       | integer    | null: false                   |
+| user            | reference  |                               |
 
 ### Association
 
