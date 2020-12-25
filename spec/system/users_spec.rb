@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "新規登録", type: :system do
+RSpec.describe '新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -21,12 +21,12 @@ RSpec.describe "新規登録", type: :system do
       fill_in 'first-name', with: @user.first_name
       fill_in 'last-name-kana', with: @user.last_name_kana
       fill_in 'first-name-kana', with: @user.first_name_kana
-      select @user.birthday.year, from: "user_birthday_1i"
-      select @user.birthday.month, from: "user_birthday_2i"
-      select @user.birthday.day, from: "user_birthday_3i"
+      select @user.birthday.year, from: 'user_birthday_1i'
+      select @user.birthday.month, from: 'user_birthday_2i'
+      select @user.birthday.day, from: 'user_birthday_3i'
       # 会員登録情報がデータベースに登録されている
       expect{
-        click_on "会員登録"
+        click_on '会員登録'
       }.to change { User.count }.by(1)
       # トップページへ遷移している
       expect(current_path).to eq root_path
@@ -34,7 +34,7 @@ RSpec.describe "新規登録", type: :system do
       expect(page).to have_content(@user.nickname)
       expect(page).to have_content('ログアウト')
       # ログアウトボタンをクリックするとログアウトできる
-      click_on "ログアウト"
+      click_on 'ログアウト'
       expect(page).to have_content('ログイン')
     end
   end
@@ -56,12 +56,12 @@ RSpec.describe "新規登録", type: :system do
       fill_in 'first-name', with: @user.first_name
       fill_in 'last-name-kana', with: @user.last_name_kana
       fill_in 'first-name-kana', with: @user.first_name_kana
-      select @user.birthday.year, from: "user_birthday_1i"
-      select @user.birthday.month, from: "user_birthday_2i"
-      select @user.birthday.day, from: "user_birthday_3i"
+      select @user.birthday.year, from: 'user_birthday_1i'
+      select @user.birthday.month, from: 'user_birthday_2i'
+      select @user.birthday.day, from: 'user_birthday_3i'
       # 会員登録情報がデータベースに登録されていない
       expect{
-        click_on "会員登録"
+        click_on '会員登録'
       }.to change { User.count }.by(0)
       # 新規登録ページへ戻される
       expect(current_path).to eq "/users"
@@ -85,14 +85,14 @@ RSpec.describe 'ログイン', type: :system do
       fill_in 'email', with: @user.email
       fill_in 'password', with: @user.password
       # ログインボタンを押す
-      click_on "ログイン"
+      click_on 'ログイン'
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
       # ヘッダーにユーザーのニックネームとログアウトボタンが表示されている
       expect(page).to have_content(@user.nickname)
       expect(page).to have_content('ログアウト')
       # ログアウトボタンをクリックするとログアウトできる
-      click_on "ログアウト"
+      click_on 'ログアウト'
       expect(page).to have_content('ログイン')
     end
   end
@@ -108,7 +108,7 @@ RSpec.describe 'ログイン', type: :system do
       fill_in 'email', with: ""
       fill_in 'password', with: ""
       # ログインボタンを押す
-      click_on "ログイン"
+      click_on 'ログイン'
       # ログインページへ戻されることを確認する
       expect(current_path).to eq "/users/sign_in"
     end
