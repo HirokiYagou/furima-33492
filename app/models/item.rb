@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   with_options presence: true do
     validates :name
     validates :explanation
@@ -11,7 +12,8 @@ class Item < ApplicationRecord
     end
     validates :price, numericality: {
       greater_than_or_equal_to: 300,
-      less_than_or_equal_to: 9999999
+      less_than_or_equal_to: 9999999,
+      message: 'には半角で300~9,999,999の値を入力してください'
     }
     validates :image
   end
