@@ -13,6 +13,7 @@ class Item < ApplicationRecord
       greater_than_or_equal_to: 300,
       less_than_or_equal_to: 9999999
     }
+    validates :image
   end
 
   belongs_to :user
