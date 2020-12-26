@@ -21,11 +21,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @category = Category.data
-    @condition = Condition.data
-    @cost = Cost.data
-    @area = Area.data
-    @day = Day.data
   end
 
   private

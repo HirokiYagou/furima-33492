@@ -19,7 +19,7 @@
         ¥<%= @item.price %>
       </span>
       <span class="item-postage">
-        <%= @cost[@item.cost_id - 1][:name] %>
+        <%= @item.cost.name %>
       </span>
     </div>
 
@@ -46,23 +46,23 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= @category[@item.category_id - 1][:name] %></td>
+          <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= @condition[@item.condition_id - 1][:name] %></td>
+          <td class="detail-value"><%= @item.condition.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= @cost[@item.cost_id - 1][:name] %></td>
+          <td class="detail-value"><%= @item.cost.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= @area[@item.area_id - 1][:name] %></td>
+          <td class="detail-value"><%= @item.area.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= @day[@item.days_id - 1][:name] %></td>
+          <td class="detail-value"><%= @item.day.name %></td>
         </tr>
       </tbody>
     </table>
@@ -102,7 +102,7 @@
     </a>
   </div>
   <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href=“#” class=‘another-item’><%= @category[@item.category_id - 1][:name] %>をもっと見る</a>
+  <a href=“#” class=‘another-item’><%= @item.category.name %>をもっと見る</a>
   <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
 </div>
 
