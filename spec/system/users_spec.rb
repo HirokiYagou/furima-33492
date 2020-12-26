@@ -64,7 +64,7 @@ RSpec.describe '新規登録', type: :system do
         click_on '会員登録'
       }.to change { User.count }.by(0)
       # 新規登録ページへ戻される
-      expect(current_path).to eq "/users"
+      expect(current_path).to eq '/users'
     end
   end
 end
@@ -105,12 +105,12 @@ RSpec.describe 'ログイン', type: :system do
       # ログインページへ移動する
       visit new_user_session_path
       # ユーザー情報を入力する
-      fill_in 'email', with: ""
-      fill_in 'password', with: ""
+      fill_in 'email', with: ''
+      fill_in 'password', with: ''
       # ログインボタンを押す
       click_on 'ログイン'
       # ログインページへ戻されることを確認する
-      expect(current_path).to eq "/users/sign_in"
+      expect(current_path).to eq '/users/sign_in'
     end
   end
 end
