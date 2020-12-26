@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item.find(params[:id])
+    @item = Item.find(params[:id])
     @category = Category.data
     @condition = Condition.data
     @cost = Cost.data
