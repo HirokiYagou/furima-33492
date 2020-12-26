@@ -8,7 +8,7 @@ class Item < ApplicationRecord
       validates :condition_id
       validates :cost_id
       validates :area_id
-      validates :days_id
+      validates :day_id
     end
     validates :price, numericality: {
       greater_than_or_equal_to: 300,
