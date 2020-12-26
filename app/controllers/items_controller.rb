@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update]
 
   def index
-    @items = Item.includes(:user).order("created_at DESC")
+    @items = Item.includes(:user).order('created_at DESC')
     @cost = Cost.data
   end
 
@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
   end
 
   private
+  
   def item_params
     params.require(:item).permit(
       :name,
