@@ -19,6 +19,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @item.find(params[:id])
+    @category = Category.data
+    @condition = Condition.data
+    @cost = Cost.data
+    @area = Area.data
+    @day = Day.data
+  end
+
   private
   def item_params
     params.require(:item).permit(
