@@ -1,6 +1,6 @@
 <%= form_with model: item, local: true do |f| %>
 
-  <%= render 'shared/error_messages', model: f.object %>
+  <%= render 'shared/error_messages', locals: { model: item }, model: f.object %>
 
   <%# 出品画像 %>
   <div class="img-upload">
