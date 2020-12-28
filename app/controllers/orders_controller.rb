@@ -8,13 +8,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    order_shipping = OrderShipping.new(order_params(@item))
-    if order_shipping.valid?
+    @order_shipping = OrderShipping.new(order_params(@item))
+    if @order_shipping.valid?
       pay_item(@item)
-      order_shipping.save
+      @order_shipping.save
       return redirect_to root_path
     else
-      render action: :index
+      render :index
     end
   end
 
