@@ -25,6 +25,10 @@ class OrdersController < ApplicationController
       :address,
       :building,
       :tel
-    ).merge(item_id: item.id, user_id: current_user.id)
+    ).merge(
+      item_id: item.id,
+      user_id: current_user.id,
+      token: params[:token]
+    )
   end
 end
