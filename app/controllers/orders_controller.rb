@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def index
     @order_shipping = OrderShipping.new
   end
-  
+
   def create
     order_shipping = OrderShipping.new(order_params(@item))
     if order_shipping.valid?
@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item(item)
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
       Payjp::Charge.create(
         amount: item.price,
         card: order_params(item)[:token],

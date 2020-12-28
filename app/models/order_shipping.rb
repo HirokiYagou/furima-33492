@@ -4,8 +4,9 @@ class OrderShipping
 
   with_options presence: true do
     validates :post, format: {
-      with: /\A\d{3}[-]\d{4}\z/.freeze,
-      message: 'ハイフンをつけて数字7文字で入力してください'}
+      with: /\A\d{3}-\d{4}\z/.freeze,
+      message: 'ハイフンをつけて数字7文字で入力してください'
+    }
     validates :area_id, numericality: { other_than: 1 }
     validates :city
     validates :address
