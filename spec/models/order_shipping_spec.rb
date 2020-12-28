@@ -62,7 +62,11 @@ RSpec.describe OrderShipping, type: :model do
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include( "Tel はハイフンは不要で0から始まる10桁または11桁の半角数字で入力してください" )
       end
-
+      it 'tokenが空では商品購入できない' do
+        @order_shipping.token = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include( "Token can't be blank" )
+      end
     end
   end
 end
