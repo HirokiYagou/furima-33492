@@ -49,8 +49,11 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    if @item.order || current_user.id == @item.user.id
-      redirect_to root_path
+    if @item.order
+      return redirect_to root_path
+    end
+    if current_user.id == @item.user.id
+      return redirect_to root_path
     end
   end
 end
