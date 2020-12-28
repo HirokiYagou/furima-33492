@@ -5,7 +5,6 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:user).order('created_at DESC')
-    @orders = Order.all
     @cost = Cost.data
   end
 

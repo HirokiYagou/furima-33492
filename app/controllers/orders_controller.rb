@@ -49,11 +49,8 @@ class OrdersController < ApplicationController
   end
 
   def move_to_index
-    orders = Order.all
-    orders.each do |order|
-      if order.item_id == @item.id
-         return redirect_to root_path
-      end
+    unless @item.order.nil?
+      return redirect_to root_path
     end
     if current_user.id == @item.user.id
       redirect_to root_path
