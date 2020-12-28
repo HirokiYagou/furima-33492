@@ -5,11 +5,18 @@ class OrdersController < ApplicationController
   end
   
   def create
+    # binding.pry
     @item = Item.find(params[:item_id])
     @order_shipping = OrderShipping.new(order_params(@item))
     if @order_shipping.valid?
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      Payjp::Charge.create(
+        amount: @item.price,
+        card: order_params(@item)[:token],
+        currency: 'jpy'
+      )
       @order_shipping.save
-      redirect_to root_path
+      return redirect_to root_path
     else
       render action: :index
     end
