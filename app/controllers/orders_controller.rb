@@ -1,19 +1,17 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item
   before_action :move_to_index
 
   def index
     @order_shipping = OrderShipping.new
-    @item = Item.find(params[:item_id])
   end
   
   def create
-    # binding.pry
-    @item = Item.find(params[:item_id])
-    @order_shipping = OrderShipping.new(order_params(@item))
-    if @order_shipping.valid?
+    order_shipping = OrderShipping.new(order_params(@item))
+    if order_shipping.valid?
       pay_item(@item)
-      @order_shipping.save
+      order_shipping.save
       return redirect_to root_path
     else
       render action: :index
@@ -46,9 +44,12 @@ class OrdersController < ApplicationController
       )
   end
 
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
+
   def move_to_index
-    item = Item.find(params[:item_id])
-    if current_user.id == item.user.id
+    if current_user.id == @item.user.id
       redirect_to root_path
     end
   end
