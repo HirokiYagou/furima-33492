@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
 
   def move_to_index
     unless @item.order.nil?
-      return redirect_to root_path
+      redirect_to root_path
     end
     if current_user.id == @item.user.id
       redirect_to root_path
