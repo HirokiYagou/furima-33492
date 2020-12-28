@@ -13,6 +13,7 @@ class OrderShipping
       with: /\A0\d{9,10}\z/.freeze,
       message: 'はハイフンは不要で0から始まる10桁または11桁の半角数字で入力してください'
     }
+    validates :token
   end
 
   def save
