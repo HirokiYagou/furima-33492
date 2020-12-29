@@ -21,6 +21,6 @@ class OrderShipping
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
-    Shipping.create(post: @post, area_id: area_id, city: city, address: address, tel: tel, order_id: order.id)
+    Shipping.create(post: post, area_id: area_id, city: city, address: address, tel: tel, order_id: order.id)
   end
 end
