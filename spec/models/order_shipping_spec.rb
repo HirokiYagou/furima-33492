@@ -7,7 +7,10 @@ RSpec.describe OrderShipping, type: :model do
     end
     
     context '商品購入ができるとき' do
-      it 'すべての値が正しく入力されていれば商品購入できること' do
+      it 'すべての値が正しく入力されていれば商品購入できる' do
+        expect(@order_shipping).to be_valid
+      end
+      it '建物名が空でも商品購入できる' do
         expect(@order_shipping).to be_valid
       end
     end
