@@ -6,8 +6,6 @@ FactoryBot.define do
     address { Gimei.town.kanji }
     building{ Gimei.town.katakana }
     tel     { Faker::Number.leading_zero_number(digits: 10) }
-    item_id {  }
-    user_id {  }
     token   { "tok_abcdefghijk00000000000000000" }
   end
 end

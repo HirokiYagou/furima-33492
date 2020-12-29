@@ -126,7 +126,7 @@
     <%= link_to '新規投稿商品', "#", class: "subtitle" %>
     <ul class='item-lists'>
       <% if @items != [] %>
-        <%= render partial: 'item', locals: { cost: @cost, orders: @orders }, collection: @items %>
+        <%= render partial: 'item', locals: { cost: @cost }, collection: @items %>
       <% else %>
         <li class='list'>
           <%= link_to '#' do %>

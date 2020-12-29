@@ -4,7 +4,7 @@
     <%= image_tag item.image, class: "item-img" %>
 
     <%# 商品が売れていればsold outを表示しましょう %>
-    <% unless item.order.nil? %>
+    <% if item.order %>
       <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
