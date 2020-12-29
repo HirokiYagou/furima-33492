@@ -9,10 +9,14 @@ RSpec.describe OrderShipping, type: :model do
       end
     end
     before do
+      user = FactoryBot.create(:user)
+      item = FactoryBot.create(:item)
+      order = FactoryBot.build(:order)
+      order.item = item
+      order.user = user
       @order_shipping = FactoryBot.build(:order_shipping)
-      @order = FactoryBot.build(:order)
-      @order_shipping.item_id = @order.item.id
-      @order_shipping.user_id = @order.user.id
+      @order_shipping.item_id = order.item.id
+      @order_shipping.user_id = order.user.id
     end
     context '商品購入ができるとき' do
       it 'すべての値が正しく入力されていれば商品購入できる' do
@@ -79,14 +83,14 @@ RSpec.describe OrderShipping, type: :model do
         expect(@order_shipping.errors.full_messages).to include("Token can't be blank")
       end
       it 'item_idが空では商品購入できない' do
-        @order.item = nil
-        @order.valid?
-        expect(@order.errors.full_messages).to include("Item must exist")
+        @order_shipping.item_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("Item can't be blank")
       end
       it 'user_idが空では商品購入できない' do
-        @order.user = nil
-        @order.valid?
-        expect(@order.errors.full_messages).to include("User must exist")
+        @order_shipping.user_id = nil
+        @order_shipping.valid?
+        expect(@order_shipping.errors.full_messages).to include("User can't be blank")
       end
     end
   end
