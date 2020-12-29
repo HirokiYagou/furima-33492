@@ -3,6 +3,8 @@ class OrderShipping
   attr_accessor :item_id, :user_id, :post, :area_id, :city, :address, :building, :tel, :token
 
   with_options presence: true do
+    validates :item_id
+    validates :user_id
     validates :post, format: {
       with: /\A\d{3}-\d{4}\z/.freeze,
       message: 'ハイフンをつけて数字7文字で入力してください'
