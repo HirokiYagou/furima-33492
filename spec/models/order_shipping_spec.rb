@@ -2,22 +2,14 @@ require 'rails_helper'
 
 RSpec.describe OrderShipping, type: :model do
   describe '商品購入機能' do
-    FactoryBot.define do
-      factory :order do
-        association :item
-        association :user
-      end
-    end
     before do
       user = FactoryBot.create(:user)
       item = FactoryBot.create(:item)
-      order = FactoryBot.build(:order)
-      order.item = item
-      order.user = user
       @order_shipping = FactoryBot.build(:order_shipping)
-      @order_shipping.item_id = order.item.id
-      @order_shipping.user_id = order.user.id
+      @order_shipping.item_id = item.id
+      @order_shipping.user_id = user.id
     end
+
     context '商品購入ができるとき' do
       it 'すべての値が正しく入力されていれば商品購入できる' do
         expect(@order_shipping).to be_valid
@@ -58,6 +50,7 @@ RSpec.describe OrderShipping, type: :model do
         expect(@order_shipping.errors.full_messages).to include("Post ハイフンをつけて数字7文字で入力してください")
       end
       it '郵便番号が7文字でないと商品購入できない' do
+        binding.pry
         @order_shipping.post = '111-111'
         @order_shipping.valid?
         expect(@order_shipping.errors.full_messages).to include("Post ハイフンをつけて数字7文字で入力してください")
