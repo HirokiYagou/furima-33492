@@ -8,13 +8,15 @@
     </h2>
     <div class="item-upper">
       <%# 商品写真 %>
-      <div class='item-img-content'>
-        <%= image_tag @item.image ,class:"item-box-img" %>
-        <% if @item.order %>
-          <div class='sold-out'>
-            <span>Sold Out!!</span>
-          </div>
-        <% end %>
+      <div class="item-img-wrapper">
+        <div class='item-img-content'>
+          <%= image_tag @item.image ,class:"item-box-img" %>
+          <% if @item.order %>
+            <div class='sold-out'>
+              <span>Sold Out!!</span>
+            </div>
+          <% end %>
+        </div>
       </div>
       <%# //商品写真 %>
       <%# 商品詳細 %>

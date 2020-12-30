@@ -30,8 +30,12 @@
   margin-top: 15px;
 }
 
-.item-img-content {
+.item-img-wrapper {
   width: 50%;
+}
+
+.item-img-content {
+  width: 100%;
 }
 .item-box-img {
   height: auto;
