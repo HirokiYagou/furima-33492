@@ -37,6 +37,7 @@
 .item-img-content {
   width: 100%;
 }
+
 .item-box-img {
   height: auto;
   width: 100%;
@@ -96,7 +97,7 @@
 }
 
 .detail-item {
-  width: 40%;
+  width: 30%;
   background-color: #eee;
   border: 1px solid #dedede;
   font-size: 14px;
@@ -104,7 +105,7 @@
 }
 
 .detail-value {
-  width: 60%;
+  width: 70%;
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
