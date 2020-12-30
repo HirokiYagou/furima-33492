@@ -1,0 +1,19 @@
+.user-header {
+  width: 100%;
+}
+
+.user-contents {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header-image {
+  width: 100%;
+}
+
+.icon-image {
+  width: 100%;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+}

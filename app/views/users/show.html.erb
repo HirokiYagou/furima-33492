@@ -3,6 +3,26 @@
   <div class="item-show">
     <div class="item-box">
       <%# ヘッダー %>
+      <div class="user-header">
+        <div class="user-header-image">
+          <% if @user.header_image %>
+            <%= image_tag @user.header_image, class: "header-image" %>
+          <% end %>
+          <div class="user-contents">
+            <div class="user-icon-image">
+              <% if @user.icon_image %>
+                <%= image_tag @user.icon_image, class: "icon-image" %>
+              <% end %>
+            </div>
+            <h3><%= @user.nickname %></h3>
+            <div class="user-status">
+              <span>評価: 0</span>
+              <span>出品数: 0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= link_to "ユーザー情報変更", edit_user_registration_path %>
       <%# //ヘッダー %>
       <%# 商品一覧 %>
       <div class='item-contents'>
