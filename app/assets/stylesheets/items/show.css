@@ -25,9 +25,17 @@
   font-size: 25px;
 }
 
+.item-upper {
+  display: flex;
+  margin-top: 15px;
+}
+
+.item-img-content {
+  width: 50%;
+}
 .item-box-img {
-  height: 50vh;
-  width: 60vw;
+  height: auto;
+  width: 100%;
   min-height: 500px;
   background-color: rgb(205, 202, 202);
   object-fit: contain;
@@ -79,12 +87,12 @@
 }
 
 .detail-table {
-  margin-bottom: 30px;
-  width: 100%;
+  margin-left: 10px;
+  width: 50%;
 }
 
 .detail-item {
-  width: 20%;
+  width: 40%;
   background-color: #eee;
   border: 1px solid #dedede;
   font-size: 14px;
@@ -92,7 +100,7 @@
 }
 
 .detail-value {
-  width: 80%;
+  width: 60%;
   padding: 20px;
   border: 1px solid #dedede;
   font-size: 14px;
