@@ -24,4 +24,6 @@ class User < ApplicationRecord
   end
 
   has_many :items
+  has_one_attached :icon_image
+  has_one_attached :header_image
 end
