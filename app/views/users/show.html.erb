@@ -23,7 +23,7 @@
               <span>評価: 0</span>
               <span>出品数: 0</span>
             </div>
-            <% if current_user.id == @user.id %>
+            <% if signed_in? && current_user.id == @user.id %>
               <%= link_to "ユーザー情報変更", edit_user_registration_path %>
             <% end %>
           </div>
