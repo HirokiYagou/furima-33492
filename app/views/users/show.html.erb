@@ -5,13 +5,17 @@
       <%# ヘッダー %>
       <div class="user-header">
         <div class="user-header-image">
-          <% if @user.header_image %>
+          <% if @user.header_image.attachment %>
             <%= image_tag @user.header_image, class: "header-image" %>
+          <% else %>
+            <div class="header-image"></div>
           <% end %>
           <div class="user-contents">
             <div class="user-icon-image">
-              <% if @user.icon_image %>
+              <% if @user.icon_image.attachment %>
                 <%= image_tag @user.icon_image, class: "icon-image" %>
+              <% else %>
+                <div class="icon-image"></div>
               <% end %>
             </div>
             <h3><%= @user.nickname %></h3>
@@ -19,10 +23,12 @@
               <span>評価: 0</span>
               <span>出品数: 0</span>
             </div>
+            <% if current_user.id == @user.id %>
+              <%= link_to "ユーザー情報変更", edit_user_registration_path %>
+            <% end %>
           </div>
         </div>
       </div>
-      <%= link_to "ユーザー情報変更", edit_user_registration_path %>
       <%# //ヘッダー %>
       <%# 商品一覧 %>
       <div class='item-contents'>

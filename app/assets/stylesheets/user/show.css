@@ -2,18 +2,34 @@
   width: 100%;
 }
 
-.user-contents {
-  width: 200px;
-  margin: 0 auto;
-  text-align: center;
+.user-header-image {
+  width: 100%;
+  position: relative;
 }
 
 .header-image {
   width: 100%;
+  height: 400px;
+  background-color: rgb(226, 226, 226);
 }
 
+.user-contents {
+  position: absolute;
+  top: 80px;
+  left: calc(50% - 100px);
+  width: 200px;
+  text-align: center;
+}
+
+
 .icon-image {
-  width: 100%;
+  width: 200px;
+  height: 200px;
   border: 1px solid lightgray;
   border-radius: 50%;
+  background-color: white;
+}
+
+.user-contents h3 {
+  font-size: 30px;
 }
