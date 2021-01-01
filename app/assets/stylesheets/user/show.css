@@ -10,6 +10,7 @@
 .header-image {
   width: 100%;
   height: 400px;
+  background-color: rgb(226, 226, 226);
 }
 
 .user-contents {
@@ -22,12 +23,13 @@
 
 
 .icon-image {
-  width: 100%;
+  width: 200px;
+  height: 200px;
   border: 1px solid lightgray;
   border-radius: 50%;
   background-color: white;
 }
 
-.user-contents> h3 {
+.user-contents h3 {
   font-size: 30px;
 }
