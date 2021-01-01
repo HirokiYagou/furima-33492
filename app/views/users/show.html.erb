@@ -7,6 +7,8 @@
         <div class="user-header-image">
           <% if @user.header_image %>
             <%= image_tag @user.header_image, class: "header-image" %>
+          <% else %>
+            <%= image_tag @user.header_image, class: "header-image" %>
           <% end %>
         </div>
         <div class="user-contents">
