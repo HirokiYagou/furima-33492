@@ -9,14 +9,24 @@
     <div class="item-upper">
       <%# 商品写真 %>
       <div class="item-img-wrapper">
-        <div class='item-img-content'>
-          <%= image_tag @item.image ,class:"item-box-img" %>
+        <div class='item-main-content'>
+          <%= image_tag @item.image ,class:"item-main-img" %>
           <% if @item.order %>
             <div class='sold-out'>
               <span>Sold Out!!</span>
             </div>
           <% end %>
         </div>
+        <ul class='thumnails'>
+          <li><%= image_tag 'pic00.png', class: 'thumnails-img' %></li>
+          <li><%= image_tag 'pic01.png', class: 'thumnails-img' %></li>
+          <li><%= image_tag 'pic02.png', class: 'thumnails-img' %></li>
+          <li><%= image_tag 'pic03.png', class: 'thumnails-img' %></li>
+          <li><%= image_tag 'pic04.png', class: 'thumnails-img' %></li>
+          <li><%= image_tag 'pic05.png', class: 'thumnails-img' %></li>
+          <li><%= image_tag 'pic06.png', class: 'thumnails-img' %></li>
+          <li><%= image_tag 'pic07.png', class: 'thumnails-img' %></li>
+        </ul>
       </div>
       <%# //商品写真 %>
       <%# 商品詳細 %>
