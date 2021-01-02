@@ -10,16 +10,16 @@
       <%# 商品写真 %>
       <div class="item-img-wrapper">
         <div class='item-main-content'>
-          <%= image_tag @item.images[0] ,class:"item-main-img" %>
+          <%= image_tag @item.images[0] , id: "item-main-image", class:"item-main-img" %>
           <% if @item.order %>
             <div class='sold-out'>
               <span>Sold Out!!</span>
             </div>
           <% end %>
         </div>
-        <ul class='thumnails'>
+        <ul class='thumbnails'>
           <% @item.images.each do |image| %>
-            <li><%= image_tag image, class: 'thumnails-img' %></li>
+            <li><%= image_tag image, class: 'thumbnail-img' %></li>
           <% end %>
         </ul>
       </div>

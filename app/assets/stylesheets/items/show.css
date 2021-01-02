@@ -44,7 +44,7 @@
   align-items: center;
 }
 
-.thumnails {
+.thumbnails {
   vertical-align: bottom;
   list-style: none;
   padding: 0;
@@ -54,14 +54,14 @@
   background-color: rgb(241, 241, 241);
 }
 
-.thumnails> li {
+.thumbnails> li {
   width: 90px;
   height: 90px;
   display: flex;
   align-items: center;
 }
 
-.thumnails-img {
+.thumbnail-img {
   max-width: 90px;
   max-height: 90px;
   margin: 0 auto;
