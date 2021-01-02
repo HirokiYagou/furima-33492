@@ -39,7 +39,7 @@
 .item-main-content {
   width: 450px;
   height: 450px;
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(241, 241, 241);
   display: flex;
   align-items: center;
 }
@@ -64,7 +64,7 @@
 }
 .thumbnails> .current-img {
   opacity: 1;
-  border: 1px solid rgb(161, 161, 161);
+  border: 1px solid rgb(201, 201, 201);
 }
 .thumbnails> li:hover {
   opacity: 1;
