@@ -254,11 +254,16 @@ a {
 
 .item-img-content {
   position: relative;
+  width: 37vh;
+  height: 37vh;
+  display: flex;
+  align-items: center;
 }
 
 .item-img {
-  width: 33vh;
-  height: 33vh;
+  max-width: 33vh;
+  max-height: 33vh;
+  margin: 0 auto;
 }
 
 .sold-out {
