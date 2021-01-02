@@ -18,6 +18,7 @@
           <% end %>
         </div>
         <ul class='thumnails'>
+          <% @item.images.each do |image| %>
             <li><%= image_tag image, class: 'thumnails-img' %></li>
           <% end %>
         </ul>
