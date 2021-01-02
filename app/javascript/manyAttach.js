@@ -10,7 +10,7 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
       const inputHTML = document.createElement('input')
       inputHTML.setAttribute('id', `item-image-${imageElementNum}`)
       inputHTML.setAttribute('class', 'input-btn')
-      inputHTML.setAttribute('name', 'item[images]')
+      inputHTML.setAttribute('name', 'item[images][]')
       inputHTML.setAttribute('type', 'file')
 
       ImageList.appendChild(inputHTML)

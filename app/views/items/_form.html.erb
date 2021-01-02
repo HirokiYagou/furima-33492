@@ -12,7 +12,7 @@
       <p>
         クリックしてファイルをアップロード
       </p>
-      <%= f.file_field :images, id:"item-image", class:"input-btn" %>
+      <%= f.file_field :images, name: 'item[images][]', id:"item-image", class:"input-btn" %>
       <div id="image-list"></div>
     </div>
   </div>
