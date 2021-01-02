@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
       :area_id,
       :day_id,
       :price,
-      :image
+      images: []
     ).merge(user_id: current_user.id)
   end
 

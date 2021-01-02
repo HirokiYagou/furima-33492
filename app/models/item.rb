@@ -15,12 +15,12 @@ class Item < ApplicationRecord
       less_than_or_equal_to: 9999999,
       message: 'には半角で300~9,999,999の値を入力してください'
     }
-    validates :image
+    validates :images
   end
 
   belongs_to :user
   has_one :order
-  has_one_attached :image
+  has_many_attached :images
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category

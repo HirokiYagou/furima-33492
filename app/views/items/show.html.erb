@@ -10,7 +10,7 @@
       <%# 商品写真 %>
       <div class="item-img-wrapper">
         <div class='item-main-content'>
-          <%= image_tag @item.image ,class:"item-main-img" %>
+          <%= image_tag @item.images[0] ,class:"item-main-img" %>
           <% if @item.order %>
             <div class='sold-out'>
               <span>Sold Out!!</span>
