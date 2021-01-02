@@ -59,6 +59,15 @@
   height: 90px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  opacity: 0.5;
+}
+.thumbnails> .current-img {
+  opacity: 1;
+  border: 1px solid rgb(161, 161, 161);
+}
+.thumbnails> li:hover {
+  opacity: 1;
 }
 
 .thumbnail-img {

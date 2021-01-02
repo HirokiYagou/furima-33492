@@ -1,13 +1,17 @@
 if (document.URL.match( /items/ )) {
   document.addEventListener('DOMContentLoaded', () => {
-    const thumbnailImgs = document.querySelectorAll('.thumbnail-img')
+    const thumbnailImgs = document.querySelectorAll('.thumbnails> li')
+    let currentNum = 0
+    thumbnailImgs[currentNum].classList.add('current-img')
 
-    thumbnailImgs.forEach((thumbnailImg) => {
+    thumbnailImgs.forEach((thumbnailImg, index) => {
       thumbnailImg.addEventListener('click', () => {
-        const thumbnailSrc = thumbnailImg.getAttribute('src')
         const itemMainImage = document.getElementById('item-main-image')
-        itemMainImage.removeAttribute('src')
-        itemMainImage.setAttribute('src', thumbnailSrc)
+        itemMainImage.src = thumbnailImg.firstElementChild.src
+
+        thumbnailImgs[currentNum].classList.remove('current-img')
+        currentNum = index
+        thumbnailImgs[currentNum].classList.add('current-img')
       })
     });
   })
