@@ -1,50 +1,46 @@
 <%= render "shared/header" %>
 <div class="main">
-  <div class="item-show">
-    <div class="item-box">
-      <%# ヘッダー %>
-      <div class="user-header">
-        <div class="user-header-image">
-          <% if @user.header_image.attachment %>
-            <%= image_tag @user.header_image, class: "header-image" %>
+  <%# ヘッダー %>
+  <div class="user-header">
+    <div class="user-header-image">
+      <% if @user.header_image.attachment %>
+        <%= image_tag @user.header_image, class: "header-image" %>
+      <% else %>
+        <div class="header-image"></div>
+      <% end %>
+      <div class="user-contents">
+        <div class="user-icon-image">
+          <% if @user.icon_image.attachment %>
+            <%= image_tag @user.icon_image, class: "icon-image" %>
           <% else %>
-            <div class="header-image"></div>
+            <div class="icon-image"></div>
           <% end %>
-          <div class="user-contents">
-            <div class="user-icon-image">
-              <% if @user.icon_image.attachment %>
-                <%= image_tag @user.icon_image, class: "icon-image" %>
-              <% else %>
-                <div class="icon-image"></div>
-              <% end %>
-            </div>
-            <h3><%= @user.nickname %></h3>
-            <div class="user-status">
-              <span>評価: 0</span>
-              <span>出品数: <%= @items.length %></span>
-            </div>
-            <% if signed_in? && current_user.id == @user.id %>
-              <%= link_to "ユーザー情報変更", edit_user_registration_path %>
-            <% end %>
-          </div>
         </div>
+        <h3><%= @user.nickname %></h3>
+        <div class="user-status">
+          <span>評価: 0</span>
+          <span>出品数: <%= @items.length %></span>
+        </div>
+        <% if signed_in? && current_user.id == @user.id %>
+          <%= link_to "ユーザー情報変更", edit_user_registration_path %>
+        <% end %>
       </div>
-      <%# //ヘッダー %>
-      <%# 商品一覧 %>
-      <div class='item-contents'>
-        <h2 class='title'><%= @user.nickname %>さんの商品</h2>
-        <ul class='item-lists'>
-          <% if @items != [] %>
-            <%= render partial: 'items/item', collection: @items %>
-          <% else %>
-            <div class="item-list-none">
-              <p>まだ出品はありません</p>
-            </div>
-          <% end %>
-        </ul>
-      </div>
-      <%# /商品一覧 %>
     </div>
   </div>
+  <%# //ヘッダー %>
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <h2 class='title'><%= @user.nickname %>さんの商品</h2>
+    <ul class='item-lists'>
+      <% if @items != [] %>
+        <%= render partial: 'items/item', collection: @items %>
+      <% else %>
+        <div class="item-list-none">
+          <p>まだ出品はありません</p>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+  <%# /商品一覧 %>
 </div>
 <%= render "shared/footer" %>

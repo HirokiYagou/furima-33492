@@ -22,8 +22,6 @@ class Item < ApplicationRecord
   has_one :order
   has_many_attached :images
 
-  # mount_uploaders :images, ImageUploader
-
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
