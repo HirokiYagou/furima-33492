@@ -12,29 +12,29 @@ RSpec.describe Item, type: :model do
     end
     context '商品出品ができないとき' do
       it '商品画像がないと出品できない' do
-        @item.image = nil
+        @item.images = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
       it '商品名が空では出品できない' do
         @item.name = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Name can't be blank")
+        expect(@item.errors.full_messages).to include("商品名を入力してください")
       end
       it '商品の説明が空では出品できない' do
         @item.explanation = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Explanation can't be blank")
+        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
       end
       it '商品のカテゴリー情報が空では出品できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Category must be other than 1')
+        expect(@item.errors.full_messages).to include('カテゴリーは1以外の値にしてください')
       end
       it '商品の状態の情報が空では出品できない' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include('Condition must be other than 1')
+        expect(@item.errors.full_messages).to include('商品の状態は1以外の値にしてください')
       end
       it '配送料の負担情報が空では出品できない' do
         @item.cost_id = 1

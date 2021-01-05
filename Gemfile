@@ -40,6 +40,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+
+  gem 'carrierwave'
 end
 
 group :development do
@@ -81,3 +83,5 @@ group :production do
 end
 
 gem 'rails-i18n'
+
+gem 'activerecord-import'
