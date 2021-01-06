@@ -1,7 +1,7 @@
 50.times do
   item = Item.new(
-    name: Faker::Movies::StarWars.character,
-    explanation: Faker::Movies::StarWars.quote,
+    name: Faker::Science.element,
+    explanation: Faker::Movies::HarryPotter.quote,
     category_id: rand(2..11),
     condition_id: rand(2..7),
     cost_id: rand(2..3),
