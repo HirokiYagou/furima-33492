@@ -123,7 +123,10 @@
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
+    <div class='subtitle-content'>
+      <%= link_to 'インテリア・住まい・小物', "#", class: "subtitle" %>
+      <%= link_to 'スポーツ・レジャー', "#", class: "subtitle" %>
+    </div>
     <ul class='item-lists'>
       <% if @items != [] %>
         <%= render partial: 'item', collection: @items %>

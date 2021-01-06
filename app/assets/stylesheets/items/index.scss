@@ -230,12 +230,14 @@ a {
   font-weight: bold;
 }
 
-.item-contents>.subtitle {
-  font-size: 3vh;
-  margin: 1vh 0;
+.item-contents .subtitle {
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  font-size: 15px;
   text-decoration: none;
   color: #3ccace;
   font-weight: bold;
+  border-radius: 10px;
 }
 
 .item-lists {

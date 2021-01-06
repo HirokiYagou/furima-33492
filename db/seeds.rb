@@ -1,7 +1,7 @@
 30.times do
   item = Item.new(
-    name: Faker::Space.moon,
-    explanation: Faker::Lorem.sentence,
+    name: Faker::Science.element,
+    explanation: Faker::Movies::HarryPotter.quote,
     category_id: rand(2..11),
     condition_id: rand(2..7),
     cost_id: rand(2..3),
@@ -10,7 +10,7 @@
     price: rand(300..9999999),
     user_id: rand(1..3),
   )
-  i = rand(1..5)
+  i = rand(1..3)
   images = []
   i.times do
     icon_num = rand(1..27)
