@@ -1,6 +1,17 @@
 <%= render "shared/header" %>
 
-<%= render partial: 'items/item', collection: @items %>
+<div class='item-contents'>
+  <h2 class='title'><%= @items[0].category.name %>の商品一覧</h2>
+  <ul class='item-lists'>
+    <% if @items != [] %>
+      <%= render partial: 'items/item', collection: @items %>
+    <% else %>
+      <div class="item-list-none">
+        <p>まだ出品はありません</p>
+      </div>
+    <% end %>
+  </ul>
+</div>
 
 <%= link_to( new_item_path, class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>出品する</span>

@@ -43,6 +43,13 @@
   display: flex;
   align-items: center;
 }
+.item-main-img {
+  margin: 0 auto;
+  max-height: 450px;
+  max-width: 450px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
 
 .thumbnails {
   vertical-align: bottom;
@@ -76,13 +83,6 @@
   margin: 0 auto;
 }
 
-.item-main-img {
-  margin: 0 auto;
-  max-height: 450px;
-  max-width: 450px;
-  background-color: rgb(205, 202, 202);
-  object-fit: contain;
-}
 
 .item-price-box {
   margin: 25px 0px;

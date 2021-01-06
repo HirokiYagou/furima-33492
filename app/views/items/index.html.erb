@@ -124,8 +124,8 @@
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <div class='subtitle-content'>
-      <%= link_to 'インテリア・住まい・小物', "#", class: "subtitle" %>
-      <%= link_to 'スポーツ・レジャー', "#", class: "subtitle" %>
+      <%= link_to @items[0][0].category.name, category_path(@items[0][0].category_id), class: "subtitle" %>
+      <%= link_to @items[3][0].category.name, category_path(@items[3][0].category_id), class: "subtitle" %>
     </div>
     <% if @items != [] %>
       <% 10.times do |i| %>
