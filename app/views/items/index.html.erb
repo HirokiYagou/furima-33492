@@ -123,7 +123,7 @@
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
-    <%# <% if @items != [] %>
+    <% if @items != [] %>
       <%# <div class='subtitle-content'> %>
         <%# <%= link_to @items[0][0].category.name, category_path(@items[0][0].category_id), class: "subtitle" %>
         <%# <%= link_to @items[3][0].category.name, category_path(@items[3][0].category_id), class: "subtitle" %>
@@ -141,27 +141,27 @@
           </div>
         <% end %>
       <% end %>
-    <%# <% else %>
-      <%# <ul class='item-lists'>
+    <% else %>
+      <ul class='item-lists'>
         <li class='list'>
           <%= link_to '#' do %>
-            <%# <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-            <%# <div class='item-info'> %>
-              <%# <h4 class='item-name'> %>
-                <%# 商品/を出品してね！ %>
-              <%# </h4> %>
-              <%# <div class='item-price'> %>
-                <%# <span>99999999円<br>(税込み)</span> %>
-                <%# <div class='star-btn'> %>
-                  <%# <%= image_tag "star.png", class:"star-icon" %>
-                  <%# <span class='star-count'>0</span> %>
-                <%# </div> %>
-              <%# </div> %>
-            <%# </div> %>
-          <%# <% end %>
-        <%# </li> %>
-      <%# </ul> %>
-    <%# <% end %>
+            <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+            <div class='item-info'>
+              <h4 class='item-name'>
+                商品を出品してね！
+              </h4>
+              <div class='item-price'>
+                <span>99999999円<br>(税込み)</span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
   </div>
   <%# /商品一覧 %>
 </div>
