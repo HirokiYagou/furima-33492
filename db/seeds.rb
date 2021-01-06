@@ -1,4 +1,4 @@
-30.times do
+50.times do
   item = Item.new(
     name: Faker::Movies::StarWars.character,
     explanation: Faker::Movies::StarWars.quote,
