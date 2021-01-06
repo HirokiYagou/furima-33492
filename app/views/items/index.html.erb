@@ -123,21 +123,23 @@
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
-    <% if @items[0] != [] %>
-      <div class='subtitle-content'>
-        <%= link_to @items[0][0].category.name, category_path(@items[0][0].category_id), class: "subtitle" %>
-        <%= link_to @items[3][0].category.name, category_path(@items[3][0].category_id), class: "subtitle" %>
-      </div>
+    <% if @items != [] %>
+      <%# <div class='subtitle-content'> %>
+        <%# <%= link_to @items[0][0].category.name, category_path(@items[0][0].category_id), class: "subtitle" %>
+        <%# <%= link_to @items[3][0].category.name, category_path(@items[3][0].category_id), class: "subtitle" %>
+      <%# </div>・ %>
       <% 10.times do |i| %>
-        <div class='category-contents'>
-          <div class='category-title'>
-            <h3><%= "#{@items[i][0].category.name}新着アイテム" %></h3>
-            <%= link_to 'もっと見る ＞', category_path(@items[i][0].category_id) %>
+        <% if @items[i] != [] %>
+          <div class='category-contents'>
+            <div class='category-title'>
+              <h3><%= "#{@items[i][0].category.name}新着アイテム" %></h3>
+              <%= link_to 'もっと見る ＞', category_path(@items[i][0].category_id) %>
+            </div>
+            <ul class='item-lists'>
+              <%= render partial: 'item', collection: @items[i] %>
+            </ul>
           </div>
-          <ul class='item-lists'>
-            <%= render partial: 'item', collection: @items[i] %>
-          </ul>
-        </div>
+        <% end %>
       <% end %>
     <% else %>
       <ul class='item-lists'>
