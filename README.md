@@ -36,6 +36,31 @@
 
 - belongs_to :user
 - has_one    :order
+- has_many   :items_categories
+- has_many   :categories, through: :items_categories
+
+## categories テーブル
+
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| tag    | string | null: false |
+
+### Association
+
+- has_many :items_categories
+- has_many :items, through: :items_categories
+
+## items_categories テーブル
+
+| Column | Type      | Options           |
+| ------ | --------- | ----------------- |
+| item | reference | foreign_key: true |
+| category | reference | foreign_key: true |
+
+### Association
+
+- belongs_to :item
+- belongs_to :category
 
 ## orders テーブル
 

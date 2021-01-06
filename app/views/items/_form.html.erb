@@ -130,9 +130,9 @@
   <%# /注意書き %>
   <%# 下部ボタン %>
   <div class="sell-btn-contents">
-    <% if item.id == nil %>
+    <% if request.fullpath.include?('new') %>
       <%= f.submit "出品する" ,class:"sell-btn" %>
-    <% else %>
+    <% elsif request.fullpath.include?('edit') %>
       <%= f.submit "変更する" ,class:"sell-btn" %>
     <% end %>
     <%=link_to 'もどる', root_path, class:"back-btn" %>

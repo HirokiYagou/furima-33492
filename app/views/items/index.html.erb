@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
-<div class='main'>
 
+<div class='main'>
   <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
   <div class='title-contents'>
     <h2 class='service-title'>
@@ -123,35 +123,50 @@
   <%# 商品一覧 %>
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
-    <%= link_to '新規投稿商品', "#", class: "subtitle" %>
-    <ul class='item-lists'>
-      <% if @items != [] %>
-        <%= render partial: 'item', collection: @items %>
-      <% else %>
+    <div class='subtitle-content'>
+      <%= link_to @items[0][0].category.name, category_path(@items[0][0].category_id), class: "subtitle" %>
+      <%= link_to @items[3][0].category.name, category_path(@items[3][0].category_id), class: "subtitle" %>
+    </div>
+    <% if @items != [] %>
+      <% 10.times do |i| %>
+        <div class='category-contents'>
+          <div class='category-title'>
+            <h3><%= "#{@items[i][0].category.name}新着アイテム" %></h3>
+            <%= link_to 'もっと見る ＞', category_path(@items[i][0].category_id) %>
+          </div>
+          <ul class='item-lists'>
+            <%= render partial: 'item', collection: @items[i] %>
+          </ul>
+        </div>
+      <% end %>
+    <% else %>
+      <ul class='item-lists'>
         <li class='list'>
           <%= link_to '#' do %>
-          <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
-          <div class='item-info'>
-            <h3 class='item-name'>
-              商品を出品してね！
-            </h3>
-            <div class='item-price'>
-              <span>99999999円<br>(税込み)</span>
-              <div class='star-btn'>
-                <%= image_tag "star.png", class:"star-icon" %>
-                <span class='star-count'>0</span>
+            <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
+            <div class='item-info'>
+              <h4 class='item-name'>
+                商品を出品してね！
+              </h4>
+              <div class='item-price'>
+                <span>99999999円<br>(税込み)</span>
+                <div class='star-btn'>
+                  <%= image_tag "star.png", class:"star-icon" %>
+                  <span class='star-count'>0</span>
+                </div>
               </div>
             </div>
-          </div>
           <% end %>
         </li>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </div>
   <%# /商品一覧 %>
 </div>
+<%# 出品ボタン %>
 <%= link_to( new_item_path, class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>出品する</span>
   <%= image_tag 'icon_camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 <% end %>
+<%# /出品ボタン %>
 <%= render "shared/footer" %>
