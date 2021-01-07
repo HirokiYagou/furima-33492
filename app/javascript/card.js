@@ -33,4 +33,4 @@ const pay = () => {
   });
 };
 
-window.addEventListener("DOMContentLoaded", pay);
+document.addEventListener("DOMContentLoaded", pay);
