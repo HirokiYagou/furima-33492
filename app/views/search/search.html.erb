@@ -1,6 +1,7 @@
 <%= render "shared/header" %>
 
 <div class='item-contents'>
+  <p>"<%= @keyword %>" の検索結果</p>
   <ul class='item-lists'>
     <% if @items != [] %>
       <%= render partial: 'items/item', collection: @items %>

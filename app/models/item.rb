@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-
+  # バリデーション
   with_options presence: true do
     validates :name
     validates :explanation
@@ -18,10 +18,12 @@ class Item < ApplicationRecord
     validates :images
   end
 
+  # アソシエーション
   belongs_to :user
   has_one :order
   has_many_attached :images
 
+  # インスタンス生成関数
   def self.getIndex()
     @items = []
     if Item.all != []
@@ -43,6 +45,7 @@ class Item < ApplicationRecord
     end
   end
 
+  # アクティブハッシュ読み込み
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition

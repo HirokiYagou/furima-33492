@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   def search
-    # binding.pry
     @items = Item.search(search_params[:keyword])[0..9]
+    @keyword = search_params[:keyword]
   end
 
   private
