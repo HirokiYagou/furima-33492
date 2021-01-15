@@ -22,9 +22,24 @@ class Item < ApplicationRecord
   has_one :order
   has_many_attached :images
 
+  def self.getIndex()
+    @items = []
+    if Item.all != []
+      10.times do |i|
+        if Item.where(category_id: i + 2)
+          items = Item.includes(:user).order('created_at DESC').where(category_id: i + 2)[0..1]
+          @items << items
+        else
+          @items << []
+        end
+      end
+    end
+    return @items
+  end
+
   def self.search(search)
     if search != ""
-      Item.where('explanation LIKE(?)', "%#{search}")
+      Item.where('explanation LIKE(?)', "%#{search}%").order('created_at DESC')
     end
   end
 
