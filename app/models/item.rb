@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-
+  # バリデーション
   with_options presence: true do
     validates :name
     validates :explanation
@@ -18,10 +18,34 @@ class Item < ApplicationRecord
     validates :images
   end
 
+  # アソシエーション
   belongs_to :user
   has_one :order
   has_many_attached :images
 
+  # インスタンス生成関数
+  def self.getIndex()
+    @items = []
+    if Item.all != []
+      10.times do |i|
+        if Item.where(category_id: i + 2)
+          items = Item.includes(:user).order('created_at DESC').where(category_id: i + 2)[0..1]
+          @items << items
+        else
+          @items << []
+        end
+      end
+    end
+    return @items
+  end
+
+  def self.search(search)
+    if search != ""
+      Item.where('explanation LIKE(?)', "%#{search}%").order('created_at DESC')
+    end
+  end
+
+  # アクティブハッシュ読み込み
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition

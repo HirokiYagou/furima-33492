@@ -4,17 +4,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
-    @items = []
-    if Item.all != []
-      10.times do |i|
-        if Item.where(category_id: i + 2)
-          items = Item.includes(:user).order('created_at DESC').where(category_id: i + 2)[0..4]
-          @items << items
-        else
-          @items << []
-        end
-      end
-    end
+    @items = Item.getIndex()
   end
 
   def new
@@ -35,7 +25,7 @@ class ItemsController < ApplicationController
 
   def edit
   end
-
+  
   def update
     if @item.update(item_params)
       redirect_to item_path(@item)
