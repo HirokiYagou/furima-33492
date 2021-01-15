@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :categories, only: :show
+  get 'search', to: "search#search"
 end

@@ -22,6 +22,12 @@ class Item < ApplicationRecord
   has_one :order
   has_many_attached :images
 
+  def self.search(search)
+    if search != ""
+      Item.where('explanation LIKE(?)', "%#{search}")
+    end
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
