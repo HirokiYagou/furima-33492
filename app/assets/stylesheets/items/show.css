@@ -37,6 +37,7 @@
 }
 
 .item-main-content {
+  position: relative;
   width: 450px;
   height: 450px;
   background-color: rgb(241, 241, 241);
