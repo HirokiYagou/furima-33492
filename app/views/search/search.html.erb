@@ -1,10 +1,66 @@
 <%= render "shared/header" %>
 
+
 <div class='item-contents'>
+  <div class="detail-search">
+    <form class="category-search">
+      <p>カテゴリ選択 <br>
+      <select name="category">
+        <option value>すべて</option>
+        <option value="2">レディース</option>
+        <option value="3">メンズ</option>
+        <option value="4">ベビー・キッズ</option>
+        <option value="5">インテリア・住まい・小物</option>
+        <option value="6">本・音楽・ゲーム</option>
+        <option value="7">おもちゃ・ホビー・グッズ</option>
+        <option value="8">家電・スマホ・カメラ</option>
+        <option value="9">スポーツ・レジャー</option>
+        <option value="10">ハンドメイド</option>
+        <option value="11">その他</option>
+      </select></p>
+    </form>
+    <form class="price-search">
+      <p>価格 <br>
+      <input type="number" name="price_min" value placeholder="¥ Min">
+      <span> ~ </span>
+      <input type="number" name="price_max" value placeholder="¥ Max">
+      </p>
+    </form>
+  </div>
+
   <p>"<%= @keyword %>" の検索結果</p>
   <ul class='item-lists'>
     <% if @items != [] %>
-      <%= render partial: 'items/item', collection: @items %>
+      <li
+        class='list'
+        v-for="item in items"
+        :key="item.id"
+      >
+        <%= link_to item_path(item.id) do %>
+        <div class='item-img-content'>
+          <%= image_tag item.images[0], class: "item-img" %>
+
+          <% if item.order %>
+            <div class='sold-out'>
+              <span>Sold Out!!</span>
+            </div>
+          <% end %>
+
+        </div>
+        <div class='item-info'>
+          <h4 class='item-name'>
+            <%= item.name %>
+          </h4>
+          <div class='item-price'>
+            <span><%= item.price %>円<br><%= item.cost.name %></span>
+            <div class='star-btn'>
+              <%= image_tag "star.png", class:"star-icon" %>
+              <span class='star-count'>0</span>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </li>
     <% else %>
       <div class="item-list-none">
         <p>検索結果はありません</p>
