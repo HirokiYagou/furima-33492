@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    @items = Item.search(search_params[:keyword])[0..9]
+    @items = Item.search(search_params[:keyword])
     @keyword = search_params[:keyword]
   end
 

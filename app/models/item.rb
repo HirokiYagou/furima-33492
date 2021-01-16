@@ -29,7 +29,7 @@ class Item < ApplicationRecord
     if Item.all != []
       10.times do |i|
         if Item.where(category_id: i + 2)
-          items = Item.includes(:user).order('created_at DESC').where(category_id: i + 2)[0..1]
+          items = Item.includes(:user).order('created_at DESC').where(category_id: i + 2)[0..4]
           @items << items
         else
           @items << []
