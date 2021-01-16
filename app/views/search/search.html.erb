@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
 
 
-<div class='item-contents'>
+<div id="search" class='item-contents'>
   <div class="detail-search">
     <form class="category-search">
       <p>カテゴリ選択 <br>
@@ -28,44 +28,36 @@
     </form>
   </div>
 
-  <p>"<%= @keyword %>" の検索結果</p>
+  <p>"" の検索結果</p>
   <ul class='item-lists'>
-    <% if @items != [] %>
       <li
         class='list'
         v-for="item in items"
         :key="item.id"
       >
+        <%# <a :href="itemLink">
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
-          <%= image_tag item.images[0], class: "item-img" %>
-
-          <% if item.order %>
-            <div class='sold-out'>
-              <span>Sold Out!!</span>
-            </div>
-          <% end %>
-
+          <img src="{{ item.images[0] }}" class="item-img">
         </div>
+
         <div class='item-info'>
           <h4 class='item-name'>
-            <%= item.name %>
+            {{ item.name }}
           </h4>
           <div class='item-price'>
-            <span><%= item.price %>円<br><%= item.cost.name %></span>
+            <span>{{ item.price }}円<br>{{ item.cost.name }}</span>
             <div class='star-btn'>
-              <%= image_tag "star.png", class:"star-icon" %>
+              <img src="star.png" class="star-icon">
               <span class='star-count'>0</span>
             </div>
           </div>
         </div>
         <% end %>
       </li>
-    <% else %>
       <div class="item-list-none">
         <p>検索結果はありません</p>
       </div>
-    <% end %>
   </ul>
 </div>
 
