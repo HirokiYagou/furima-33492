@@ -4,9 +4,11 @@
   <%# カルーセル部分 %>
   <div id="carousel">
     <div class="carousel-wrapper">
-      <div class='carousel-item' :key='target.id'>
-        <img :src="target.src" alt=''>
-      </div>
+      <transition tag="div" :name="imageTransitionName">
+        <div class='carousel-item' :key='target.id'>
+          <img :src="target.src" alt=''>
+        </div>
+      </transition>
       <ol class='carousel-pager'>
         <li v-for='(bar, index) in bars' :key='bar.id'>
           <button

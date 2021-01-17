@@ -34,6 +34,26 @@ a {
 .carousel-pager .isCurrent {
  opacity: 1;
 }
+// カルーセルのアニメーション
+.next-leave-active,
+.prev-leave-active,
+.next-enter-active,
+.prev-enter-active {
+  transition: all 0.3s ease;
+}
+.next-leave-active,
+.prev-leave-active {
+  position: absolute;
+}
+.next-enter-from,
+.prev-leave-to {
+  transform: translateX(100%);
+}
+
+.prev-enter-from,
+.next-leave-to {
+  transform: translateX(-100%);
+}
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
