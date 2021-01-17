@@ -41,7 +41,9 @@ function carousel() {
     },
   })
 
-  app.mount('#carousel')
+  if (document.getElementById('carousel')){
+    app.mount('#carousel')
+  }
 }
 
 document.addEventListener('DOMContentLoaded', carousel)
