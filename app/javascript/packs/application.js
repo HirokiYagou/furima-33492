@@ -11,6 +11,7 @@ require("../price")
 require("../card")
 require("../manyAttach")
 require("../selectMainImage")
+require("../carousel")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
