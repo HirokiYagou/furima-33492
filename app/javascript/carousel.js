@@ -5,11 +5,11 @@ function carousel() {
         bars: [
           {
             id: 1,
-            src: "/assets/bar1.jpg"
+            src: "/public/assets/bar1-7c14f9a586c02e989083416d5d1210a9972c40dcc6c6b6dd3b4e0ecaad9a6b9b.jpg"
           },
           {
             id: 2,
-            src: "/assets/bar2.png"
+            src: "/public/assets/bar2-1e7ff02ad79e0de10f96cb7476c58777ddd3699b0cad837525f430ce8e984ac6.png"
           }
         ],
         selectedIndex: 1,
