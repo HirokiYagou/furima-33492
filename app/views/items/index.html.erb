@@ -1,11 +1,23 @@
 <%= render "shared/header" %>
 
 <div class='main'>
-  <%# 画面上部の「人生を変えるフリマアプリ」帯部分 %>
-  <div id='carousel' class='title-contents'>
-    {{ message }}
+  <%# カルーセル部分 %>
+  <div id='carousel'>
+    <div class='carousel-item' :key='target.id'>
+      <img :src="target.src" alt=''>
+    </div>
+    <ol class='carousel-pager'>
+      <li v-for='(bar, index) in bars' :key='bar.id'>
+        <button
+          tabindex='0'
+          :class="{ 'isCurrent': index === selectedIndex }"
+          @click='onClickPager(index)'
+        ></button>
+      </li>
+    </ol>
+    <p>{{ message }}</p>
   <div>
-  <%# /画面上部の「人生を変えるフリマアプリ」帯部分  %>
+  <%# /カルーセル部分  %>
 
   
   <%# 商品一覧 %>

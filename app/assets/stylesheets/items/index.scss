@@ -6,6 +6,15 @@ a {
   background: #f8f8f8;
 }
 
+//カルーセル部分
+#carousel {
+  width: 100vw;
+  background-color: skyblue;
+}
+#carousel img {
+  width: 100vw;
+}
+
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
 .title-contents {
   width: 100vw;
