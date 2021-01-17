@@ -74,6 +74,9 @@
   opacity: 1;
   border: 1px solid rgb(201, 201, 201);
 }
+.thumbnails> li {
+  border: 1px solid rgb(241, 241, 241);
+}
 .thumbnails> li:hover {
   opacity: 1;
 }
