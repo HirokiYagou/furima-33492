@@ -2,7 +2,6 @@ function carousel() {
   const app = Vue.createApp({
     data() {
       return {
-        message: 'たまプラーザ',
         bars: [
           {
             id: 1,
@@ -24,18 +23,21 @@ function carousel() {
       },
       lastIndex: function() {
         return this.bars.length - 1
-      }
+      },
     },
     methods: {
       onClickPager: function(index) {
         this.imageTransitionName = this.selectedIndex < index ? "next" : "prev"
         this.selectedIndex = index
       },
-      nextPager: function() {
-        this.imageTransitionName = "next"
-        this.selectedIndex =
-          this.selectedIndex >= this.lastIndex ? 0 : this.selectedIndex + 1
-      },
+    },
+    mounted() {
+      const self = this
+      setInterval(function() {
+        self.imageTransitionName = "next"
+        self.selectedIndex =
+          self.selectedIndex >= self.lastIndex ? 0 : self.selectedIndex + 1
+      }, 5000)
     },
   })
 

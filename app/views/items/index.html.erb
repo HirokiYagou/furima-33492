@@ -2,20 +2,21 @@
 
 <div class='main'>
   <%# カルーセル部分 %>
-  <div id='carousel'>
-    <div class='carousel-item' :key='target.id'>
-      <img :src="target.src" alt=''>
+  <div id="carousel">
+    <div class="carousel-wrapper">
+      <div class='carousel-item' :key='target.id'>
+        <img :src="target.src" alt=''>
+      </div>
+      <ol class='carousel-pager'>
+        <li v-for='(bar, index) in bars' :key='bar.id'>
+          <button
+            tabindex='0'
+            :class="{ 'isCurrent': index === selectedIndex }"
+            @click='onClickPager(index)'
+          ></button>
+        </li>
+      </ol>
     </div>
-    <ol class='carousel-pager'>
-      <li v-for='(bar, index) in bars' :key='bar.id'>
-        <button
-          tabindex='0'
-          :class="{ 'isCurrent': index === selectedIndex }"
-          @click='onClickPager(index)'
-        ></button>
-      </li>
-    </ol>
-    <p>{{ message }}</p>
   <div>
   <%# /カルーセル部分  %>
 

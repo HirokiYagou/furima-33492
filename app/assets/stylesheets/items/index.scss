@@ -9,10 +9,29 @@ a {
 //カルーセル部分
 #carousel {
   width: 100vw;
-  background-color: skyblue;
+}
+.carousel-wrapper {
+  position: relative;
 }
 .carousel-item> img {
   width: 100vw;
+}
+.carousel-pager {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+.carousel-pager> li:first-child {
+  margin-right: 10px;
+}
+.carousel-pager button{
+  opacity: 0.5;
+}
+.carousel-pager .isCurrent {
+ opacity: 1;
 }
 
 /* 画面上部の「人生を変えるフリマアプリ」帯部分 */
