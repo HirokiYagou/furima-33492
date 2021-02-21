@@ -4,7 +4,7 @@ if (document.URL.match( /orders/ )) {
     const form = document.getElementById("charge-form");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-  
+
       const formResult = document.getElementById("charge-form");
       const formData = new FormData(formResult);
   
@@ -14,7 +14,7 @@ if (document.URL.match( /orders/ )) {
         exp_year: `20${formData.get("order_shipping[exp_year]")}`,
         cvc: formData.get("order_shipping[cvc]"),
       };
-  
+      
       Payjp.createToken(card, (status, response) => {
         if (status === 200) {
           const token = response.id;
